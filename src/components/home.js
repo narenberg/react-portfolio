@@ -1,22 +1,23 @@
 import React from 'react'
+import ExpImage from './expimage'
 
-export default function Home(){
+export default function Home(props){
 	return(
 		<div>
-			<div class='text' id='summary'>
+			<div className='text' id='summary'>
 				<h2>Computer Science Student at UCSB</h2>
 			</div>
-			<div class="body-container">
+			<div className="body-container">
 				
-				<div class='links-container'>
+				<div className='links-container'>
 					<h2>Here's a little more about me</h2>
-					<div class='button-container'>
-						<a href='contactme.html' class='button'>Contact Me</a>
-						<a href='projects.html' class='button'>Projects</a>
-						<a href='about.html' class='button'>About</a>
+					<div className='button-container'>
+						<a href='#' className='button' onClick={props.onButtonPress} title='About' >About Me</a>
+						<a href='#' className='button' onClick={props.onButtonPress} title='Projects' >Projects</a>
+						<a href='#' className='button' onClick={props.onButtonPress} title='Contact' >Contact Me</a>
 					</div>
 				</div>
-				<img src="portrait.jpg" id='portrait'/>
+				<ExpImage src="portrait.jpg" id='portrait'/>
 				
 			</div>
 		</div>

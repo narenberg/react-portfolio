@@ -4,23 +4,44 @@ import About from './about.js'
 import Projects from './projects.js'
 import Contact from './contact.js'
 import Home from './home.js'
+import ScrollTopButton from './scrolltopbutton.js'
 
 export default class NavBar extends React.Component{
 	constructor(props){
 		super(props)
-		this.state = {activeTab: 'Homepage'}
+		this.state = {activeTab: 'Homepage', scrolled: false}
 		this.handleClick = this.handleClick.bind(this)
+		this.handleScroll = this.handleScroll.bind(this)
+		this.handleScrollClick = this.handleScrollClick.bind(this)
 	}
 
 	handleClick = (e) => {
 		this.setState({activeTab: e.target.getAttribute('title')})
 	}
 
+	componentDidMount(){
+		window.addEventListener('scroll', this.handleScroll)
+	}
+
+	componentWillUnmount(){
+		window.removeEventListener('scroll', this.handleScroll)
+	}
+
+	handleScrollClick(e){
+		window.scrollTo(0, 0)
+		this.setState({scrolled: false})
+	}
+
+	handleScroll(e){
+		this.setState({scrolled: true})
+		if(window.scrollY <= 100) this.setState({scrolled: false})
+	}
+
 	render(){
 		const tabTitle = this.state.activeTab
 		var content
 		if(tabTitle === 'Homepage'){
-			content = <Home />
+			content = <Home onButtonPress={this.handleClick} />
 		}
 		if(tabTitle === 'About'){
 			content = <About />
@@ -31,6 +52,9 @@ export default class NavBar extends React.Component{
 		if(tabTitle === 'Contact'){
 			content = <Contact />
 		}
+
+		var scrollTopButton = <ScrollTopButton onClick={this.handleScrollClick} />
+
 		return(
 		<div>
 			<div className='navbar-container'>
@@ -40,6 +64,7 @@ export default class NavBar extends React.Component{
 				<Tab title='Contact' active={this.state.activeTab} onClick={(e) => this.handleClick(e)}/>
 			</div>
 			{content}
+			{this.state.scrolled && scrollTopButton}
 		</div>
 		);
 	}

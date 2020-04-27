@@ -1,38 +1,182 @@
-.App {
-  text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Raleway:ital,wght@0,500;1,500&display=swap');
+:root {
+  --color-0: #f3f9fb;
+  --color-1: #87c0cd;
+  --color-2: #226597;
+  --color-3: #113f67;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html{
+  font-family: 'Raleway';
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  background-color: var(--color-0);
   display: flex;
   flex-direction: column;
+}
+.body-container img {
+  max-width: 45%;
+
+}
+
+.text {
+  text-align: left;
+  font-size: 30px;
+
+}
+
+.body-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
   align-items: center;
+}
+
+.container{
+  font-size: 1.5vw;
+  display: flex;
+  flex-direction: column;
+  margin: 24px;
+  margin-top: 56px;
+}
+
+.container img {
+  min-width: 200px;
+  max-width: 300px;
+  margin: 8px;
+}
+
+img {
+  padding: 8px;
+  background-color: var(--color-1);
+  border-radius: 8px;
+}
+
+#summary {
+  align-self: center;
+  text-align: center;
+  font-size: 52px;
+  color: var(--color-2);
+  margin-bottom: 16px;
+}
+
+.body-container {
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: 4;
+  margin: 8px;
+}
+
+.links-container{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  margin: 16px;
+  margin-right: 48px;
+  text-align: center;
+  font-size: 2vw;
+}
+
+.button-container{
+  align-self: center;
+  justify-content: center;
+}
+
+.button{
+  font-style: none;
+  font-size: 40px;
+  text-decoration: none;
   color: white;
+  text-align: center;
+  background-color: var(--color-2);
+  padding: 8px;
+  padding-left: 24px;
+  padding-right: 24px;
+  border-radius: 16px;
+  margin: 8px;
+  transition: 0.2s;
 }
 
-.App-link {
-  color: #61dafb;
+.button:hover{
+  background-color: var(--color-3);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#portrait {
+  flex-grow: 1;
+}
+
+.active {
+  background-color: var(--color-1);
+}
+
+.navbar-container {
+  height: 56px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 8px;
+  margin-bottom: 16px;
+  border-radius: 5px 5px 25px 5px;
+  border: 0.5px gray solid;
+}
+
+.navbar-content {
+  max-height: 90%;
+  align-items: center;
+  display: flex;
+  font-family: 'Raleway';
+  margin-left: 5%;
+  margin-right: 5%;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 15px;
+  font-size: 1.3vw;
+  transition: 0.2s;
+  color: black;
+}
+
+.navbar-content:hover {
+  background-color: var(--color-1);
+}
+
+.project {
+  width: 90%;
+  background-color: var(--color-1);
+  border-radius: 10px;
+  display: flex;
+  font-family: 'Raleway';
+  flex-direction: row;
+  align-items: center;
+  border: solid black;
+  margin-bottom: 8px;
+}
+.project-desc {
+  font-size: 24px;
+  flex-grow: 1;
+  /*background-color: var(--color-2);*/
+  color: black;
+  margin: 3px;
+  border-radius: 5px;
+  max-width: 33%;
+}
+
+.project-vid {
+  max-height: 320px;
+  flex-grow: 1;
+}
+.large-in-charge {
+  opacity: 1;
+  max-width: 85%;
+  max-height: 85%;
+}
+.whole-page {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(34, 101, 151, 0.2);
 }

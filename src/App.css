@@ -186,3 +186,8 @@ img {
   right: 1%;
   font-size: 24px;
 }
+
+.guest-form{
+  display: flex;
+  flex-direction: column;
+}

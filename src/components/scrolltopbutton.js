@@ -1,5 +1,4 @@
 import React, {Component} from 'react'
-import NavBar from './navbar.js'
 
 export default class ScrollTopButton extends Component {
 

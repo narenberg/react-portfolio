@@ -31,12 +31,14 @@ export default class GuestForm extends React.Component {
 		firebase.database().ref('data').push(data)
 		alert('Message submitted successfully!')
 		e.target.reset()
+		window.reload()
 		e.preventDefault()
 	}
 
 	render(){
 		return(
 			<div className='guest-form-container'>
+				<h1>Leave me a message!</h1>
 				<form className='guest-form' onSubmit={this.handleSubmit} onChange={this.handleChange}>
 					<label htmlFor='name'>Your name:</label>
 					<input type='text' id='name' name='name' minLength={5} maxLength={20} required />

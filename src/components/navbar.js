@@ -6,6 +6,7 @@ import Contact from './contact.js'
 import Home from './home.js'
 import ScrollTopButton from './scrolltopbutton.js'
 import GuestBook from './guestbook'
+import firebase from '../firebase'
 
 export default class NavBar extends React.Component{
 	constructor(props){
@@ -20,8 +21,16 @@ export default class NavBar extends React.Component{
 		this.setState({activeTab: e.target.getAttribute('title')})
 	}
 
-	componentDidMount(){
+	async componentDidMount(){
 		window.addEventListener('scroll', this.handleScroll)
+		var messages = []
+		const ref = await firebase.database().ref('data').orderByKey()
+		await ref.on('child_added', (snapshot) => {
+			console.log(snapshot.toJSON().public)
+			if(snapshot.toJSON().public)
+				messages.push(snapshot.toJSON())
+		})
+		this.setState( {messages} )
 	}
 
 	componentWillUnmount(){
@@ -54,7 +63,7 @@ export default class NavBar extends React.Component{
 			content = <Contact />
 		}
 		if(tabTitle === 'Guest Book'){
-			content = <GuestBook />
+			content = <GuestBook messages={this.state.messages}/>
 		}
 
 		var scrollTopButton = <ScrollTopButton onClick={this.handleScrollClick} />

@@ -3,18 +3,18 @@ import ExpImage from './expimage.js'
 
 export default function Contact(){
 	return (
-		<div class="body-container">
-			<div class="container">
+		<div className="body-container">
+			<div className="container">
 				<ExpImage src='email.png' />
-				<a href='mailto://nick.arenberg22@gmail.com' class='button'>Email</a>
+				<a href='mailto://nick.arenberg22@gmail.com' className='button'>Email</a>
 			</div>
-			<div class='container'>
+			<div className='container'>
 				<ExpImage src='https://1000logos.net/wp-content/uploads/2017/03/LinkedIn-Logo-500x500.png' />
-				<a href='https://www.linkedin.com/in/nickarenberg/' class='button'>LinkedIn</a>
+				<a href='https://www.linkedin.com/in/nickarenberg/' className='button'>LinkedIn</a>
 			</div>
-			<div class="container">
+			<div className="container">
 				<ExpImage src='https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png' />
-				<a href='https://github.com/narenberg' class='button'>Github</a>
+				<a href='https://github.com/narenberg' className='button'>Github</a>
 			</div>
 		</div>)
 }

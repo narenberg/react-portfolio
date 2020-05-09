@@ -14,7 +14,7 @@ export default function Projects(){
 function Project(props){
 	return(
 		<div className='project'>
-			<span class='project-desc'>
+			<span className='project-desc'>
 				<h1>{props.title}</h1>
 				<p>{props.desc}</p>
 			</span>

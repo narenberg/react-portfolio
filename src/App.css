@@ -232,3 +232,11 @@ img {
 input {
   margin: 8px;
 }
+.movie-poster {
+  margin: 4px;
+  max-width: 25%;
+  transition: 0.2s;
+}
+.movie-poster:hover {
+  background-color: var(--color-2);
+}

@@ -8,6 +8,7 @@ import ScrollTopButton from './scrolltopbutton.js'
 import GuestBook from './guestbook'
 import firebase from '../firebase'
 import MovieList from './movielist'
+import MoviesPage from './moviespage'
 
 export default class NavBar extends React.Component{
 	constructor(props){
@@ -27,7 +28,6 @@ export default class NavBar extends React.Component{
 		var messages = []
 		const ref = await firebase.database().ref('data').orderByKey()
 		await ref.on('child_added', (snapshot) => {
-			console.log(snapshot.toJSON().public)
 			if(snapshot.toJSON().public)
 				messages.push(snapshot.toJSON())
 		})
@@ -69,6 +69,9 @@ export default class NavBar extends React.Component{
 		if(tabTitle === 'Movie List'){
 			content = <MovieList />
 		}
+		if(tabTitle === 'Movies Page'){
+			content = <MoviesPage />
+		}
 
 		var scrollTopButton = <ScrollTopButton onClick={this.handleScrollClick} />
 
@@ -81,6 +84,7 @@ export default class NavBar extends React.Component{
 				<Tab title='Contact' active={this.state.activeTab} onClick={(e) => this.handleClick(e)}/>
 				<Tab title='Guest Book' active={this.state.activeTab} onClick={(e) => this.handleClick(e)}/>
 				<Tab title='Movie List' active={this.state.activeTab} onClick={(e) => this.handleClick(e)}/>
+				<Tab title='Movies Page' active={this.state.activeTab} onClick={(e) => this.handleClick(e)}/>
 			</div>
 			{content}
 			{this.state.scrolled && scrollTopButton}

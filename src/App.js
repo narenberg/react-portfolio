@@ -8,7 +8,8 @@ function App() {
     <div className="App">
 	    <SimpleReactLightbox>
 	      <NavBar />
-      </SimpleReactLightbox>
+      	</SimpleReactLightbox>
+      	<div id='modal-root'></div>
     </div>
   );
 }

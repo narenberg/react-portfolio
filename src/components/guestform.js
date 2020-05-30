@@ -24,7 +24,6 @@ export default class GuestForm extends React.Component {
 	}
 
 	handleSubmit(e) {
-		console.log(this.state)
 		var data = this.state;
 		var now = new Date();
 		data.date = now.getMonth() + '/' + now.getDate() + '/' +  now.getFullYear();

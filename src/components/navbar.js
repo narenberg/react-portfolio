@@ -9,6 +9,7 @@ import GuestBook from './guestbook'
 import firebase from '../firebase'
 import MovieList from './movielist'
 import MoviesPage from './moviespage'
+import Graph from './graph'
 
 export default class NavBar extends React.Component{
 	constructor(props){
@@ -54,23 +55,26 @@ export default class NavBar extends React.Component{
 		if(tabTitle === 'Homepage'){
 			content = <Home onButtonPress={this.handleClick} />
 		}
-		if(tabTitle === 'About'){
+		else if(tabTitle === 'About'){
 			content = <About />
 		}
-		if(tabTitle === 'Projects'){
+		else if(tabTitle === 'Projects'){
 			content = <Projects />
 		}
-		if(tabTitle === 'Contact'){
+		else if(tabTitle === 'Contact'){
 			content = <Contact />
 		}
-		if(tabTitle === 'Guest Book'){
+		else if(tabTitle === 'Guest Book'){
 			content = <GuestBook messages={this.state.messages}/>
 		}
-		if(tabTitle === 'Movie List'){
+		else if(tabTitle === 'Movie List'){
 			content = <MovieList />
 		}
-		if(tabTitle === 'Movies Page'){
+		else if(tabTitle === 'Movies Page'){
 			content = <MoviesPage />
+		}
+		else if(tabTitle === 'Graph'){
+			content = <Graph />
 		}
 
 		var scrollTopButton = <ScrollTopButton onClick={this.handleScrollClick} />
@@ -85,6 +89,7 @@ export default class NavBar extends React.Component{
 				<Tab title='Guest Book' active={this.state.activeTab} onClick={(e) => this.handleClick(e)}/>
 				<Tab title='Movie List' active={this.state.activeTab} onClick={(e) => this.handleClick(e)}/>
 				<Tab title='Movies Page' active={this.state.activeTab} onClick={(e) => this.handleClick(e)}/>
+				<Tab title='Graph' active={this.state.activeTab} onClick={(e) => this.handleClick(e)}/>
 			</div>
 			{content}
 			{this.state.scrolled && scrollTopButton}
